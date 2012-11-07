@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteBase /webalife/admin/
+
+RewriteRule ^m/([a-z]+)/([a-z]+)\.php$ index.php?module=$1&file=$2 [QSA]
