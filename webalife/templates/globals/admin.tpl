@@ -76,7 +76,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="/">Webalife.CMS</a>
+            <a class="brand" href="/webalife/admin/">Webalife.CMS</a>
             {WL_AdminMenu}
             <ul class="nav">
             {section name=q loop=$AdminMenu}

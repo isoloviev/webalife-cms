@@ -10,8 +10,12 @@ function smarty_function_WL_AdminContent($params, Smarty_Internal_Template &$sma
     global $admin;
     // if template exists we will fetch it
     $p = CMS_TEMPLATE_PATH . 'globals/'.$_REQUEST['module'] . '/' . $_REQUEST['file'] . '.tpl';
-    if (file_exists($p))
+    if (file_exists($p)) {
         echo $smarty->fetch($_REQUEST['module'] . '/' . $_REQUEST['file'] . '.tpl');
+    }
+    if (!isset($_REQUEST['module'])) {
+        echo $smarty->fetch('index.tpl');
+    }
     // for backward compatibility
     // todo should be removed
     $admin->handler();

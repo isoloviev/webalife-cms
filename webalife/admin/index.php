@@ -21,7 +21,7 @@ if ($_REQUEST['module'] && file_exists($p)) {
 
 global $CPANEL_LANG;
 $admin = new admin('Desktop');
-$admin->WorkSpaceTitle = $CPANEL_LANG['Desktop Title'];
+$admin->WorkSpaceTitle = 'Добро пожаловать!';
 
 if (is_numeric($_REQUEST['ManageSite'])) {
     $_SESSION['SITE_ID'] = $_REQUEST['ManageSite'];
