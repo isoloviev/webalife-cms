@@ -24,4 +24,5 @@ define('CMS_MODULES', CMS_ROOT_DIR . 'webalife/modules/');
 define('CMS_CLASSES', CMS_ROOT_DIR . 'webalife/classes/');
 define('CMS_LANGUAGES', CMS_ROOT_DIR . 'webalife/langs/');
 define('CMS_RUNTIME_PATH', CMS_ROOT_DIR . 'webalife/runtime/');
+define('CMS_RUNTIME_URL', '/webalife/runtime/');
 define('SMARTY_DIR', CMS_ROOT_DIR . 'webalife/Smarty/libs/');
