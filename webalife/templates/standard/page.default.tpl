@@ -5,9 +5,9 @@
     <meta name="keywords" content="{$Page.Keywords}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="{$CMS_ROOT_URL}bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="{$CMS_ROOT_URL}assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="{$CMS_ROOT_URL}style.css" rel="stylesheet">
+    <link href="/files/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/files/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/files/css/style.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -59,11 +59,13 @@
 
     <div class="masthead">
         <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li {if $Page.PAGE_PATH eq "/"}class="active"{/if}><a href="/">Главная</a></li>
+            {WL_MainBotMenu level=1}
+            {section name=q loop=$BOTMENU}
+                <li {if $BOTMENU[q].Active}class="active"{/if}><a href="{$BOTMENU[q].Link}">{$BOTMENU[q].Text}</a></li>
+            {/section}
         </ul>
-        <h3 class="muted">Project name</h3>
+        <h3 class="muted">{$smarty.session.CMS_NAME}</h3>
     </div>
 
     <hr>
@@ -71,39 +73,22 @@
     <div class="jumbotron">
         <h1>Super awesome marketing speak!</h1>
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <a class="btn btn-large btn-success" href="#">Sign up today</a>
     </div>
 
     <hr>
 
-    <div class="row-fluid marketing">
-        <div class="span6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+    {WL_Content}
 
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+    {if $Page.PAGE_PATH eq "/"}
 
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
+        {include file="news/preview.tpl" align="left"}
 
-        <div class="span6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-    </div>
+    {/if}
 
     <hr>
 
     <div class="footer">
-        <p>&copy; Company 2012</p>
+        <p>&copy; {$Page.Copyright}</p>
     </div>
 
 </div> <!-- /container -->
@@ -111,19 +96,8 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/bootstrap-transition.js"></script>
-<script src="../assets/js/bootstrap-alert.js"></script>
-<script src="../assets/js/bootstrap-modal.js"></script>
-<script src="../assets/js/bootstrap-dropdown.js"></script>
-<script src="../assets/js/bootstrap-scrollspy.js"></script>
-<script src="../assets/js/bootstrap-tab.js"></script>
-<script src="../assets/js/bootstrap-tooltip.js"></script>
-<script src="../assets/js/bootstrap-popover.js"></script>
-<script src="../assets/js/bootstrap-button.js"></script>
-<script src="../assets/js/bootstrap-collapse.js"></script>
-<script src="../assets/js/bootstrap-carousel.js"></script>
-<script src="../assets/js/bootstrap-typeahead.js"></script>
+<script src="/files/bootstrap/js/jquery.js"></script>
+<script src="/files/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -4,16 +4,8 @@
  * @package Smarty
  * @subpackage plugins
  */
- 
-/**
- * MKS Engine (c) 2006
- * Ivan S. Soloviev
- *
- * Модуль для отображения счетчиков на сайте
- */
 
-
-function smarty_function_MKS_Module_Counters($params, &$smarty)
+function smarty_function_WL_Counters($params, &$smarty)
 {
 	global $mysql, $site;
 	$counts = file($_SERVER['CMS_CORE'].'counters_'.$_SESSION['CMS_SITE_ID'].'.php');

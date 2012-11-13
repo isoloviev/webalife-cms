@@ -25,16 +25,18 @@
             {/foreach}
             <td>
                 <div class="btn-group">
+                    {if !$do_not_sort}
                     <a class="btn btn-mini {if $smarty.section.i.first}disabled{/if}" href="?{$title_id}={$rows[i].ID}{$additional_url}&sort=up" {if $smarty.section.i.first}onclick="return false;"{/if}>
                         <span class="icon-arrow-up" title="Поднять наверх"></span>
                     </a>
                     <a class="btn btn-mini {if $smarty.section.i.last}disabled{/if}" href="?{$title_id}={$rows[i].ID}{$additional_url}&sort=down" {if $smarty.section.i.last}onclick="return false;"{/if}>
                         <span class="icon-arrow-down" title="Опустить вниз"></span>
                     </a>
+                    {/if}
                     <a class="btn btn-mini btn-primary" href="?{$title_id}={$rows[i].ID}{$additional_url}">
                         <span class="icon-edit icon-white" title="Редактировать"></span>
                     </a>
-                    <a class="btn btn-mini btn-danger" href="?delete={$rows[i].ID}{$additional_url}&reason={$reason_to_delete}" onclick="return deleteConfirm();">
+                    <a class="btn btn-mini btn-danger {if $delete_prohibited}disabled{/if}" href="?delete={$rows[i].ID}{$additional_url}&reason={$reason_to_delete}" {if $delete_prohibited}onclick="return false;"{else}onclick="return deleteConfirm();"{/if}>
                         <span class="icon-remove icon-white" title="Удалить"></span>
                     </a>
                 </div>

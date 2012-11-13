@@ -6,15 +6,10 @@
  */
  
 /**
- * MKS Engine (c) 2006
- * Ivan S. Soloviev
- *
- * ћодуль дл€ отображени€ новостей
- * @params - feed_id = "" - об€зательный параметр (идентификатор ленты новостей)
+ * @params - feed_id = ""
  */
 
-
-function smarty_function_MKS_Module_News($params, &$smarty)
+function smarty_function_WL_News($params, &$smarty)
 {
 	global $mysql, $site, $SLANG, $cms_record_id, $NewsView;
 	// include language file
